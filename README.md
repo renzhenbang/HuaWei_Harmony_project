@@ -68,6 +68,7 @@ python /home/renzhenbang/run_eval.py
 ## NQ 数据集上的 GRPO 微调
 我们参考 Search-R1 的结构化训练范式，在 NQ 数据集上对模型进行微调，以提升其在结构化推理任务中的表现。
 步骤如下：
+
 启动检索服务（默认基于 Jina embedding + reranker 模型）：
 ```bash
 bash /home/renzhenbang/Search-R1/retrieval_launch.sh
@@ -120,4 +121,5 @@ curl -X POST 'http://localhost:8000/search_r1' \
 | NQ结构化微调    | √      | ×    | ×    | 35.1%      |
 | 格式对齐增强     | √      | √    | ×    | 53.8%      |
 | 多源联合训练（最终） | √      | √    | √    | 70.1%      |
+
 报告中进一步提出了“熵-对齐奖励机制”的设想以实现端到端强化学习优化，但本次提交的系统尚未实现该部分，仅保留了接口与框架设计以供未来拓展使用。
